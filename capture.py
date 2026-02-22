@@ -64,6 +64,8 @@ async def authenticate(credentials_file: Path) -> Blink:
             await blink.save(str(credentials_file))
             return blink
 
+        await blink.auth.session.close()
+
     # --- Fresh login ---
     username = os.environ.get("BLINK_USERNAME") or input("Blink username (email): ")
     password = os.environ.get("BLINK_PASSWORD") or input("Blink password: ")
@@ -173,6 +175,8 @@ async def run_collector(
             await asyncio.sleep(interval)
     except KeyboardInterrupt:
         log.info("Stopped by user.")
+    finally:
+        await blink.auth.session.close()
 
 
 def main() -> None:
