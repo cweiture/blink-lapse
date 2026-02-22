@@ -1,0 +1,22 @@
+# Virtual environment
+.venv/
+
+# Blink credentials — contains auth tokens, never commit
+.credentials.json
+
+# Captured frames (potentially large; track separately if desired)
+frames/
+
+# Environment variable file
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Editor
+.vscode/
+.idea/
+*.swp
