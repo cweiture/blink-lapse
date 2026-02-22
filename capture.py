@@ -9,8 +9,11 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from dotenv import load_dotenv
 from blinkpy.auth import Auth, BlinkTwoFARequiredError
 from blinkpy.blinkpy import Blink
+
+load_dotenv()
 
 logging.basicConfig(
     level=logging.INFO,
