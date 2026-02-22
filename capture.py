@@ -186,10 +186,11 @@ def main() -> None:
         metavar="SECONDS",
         help="Capture interval in seconds",
     )
+    _cameras_env = os.environ.get("BLINK_CAMERAS")
     parser.add_argument(
         "--cameras",
         nargs="+",
-        default=None,
+        default=_cameras_env.split(",") if _cameras_env else None,
         metavar="NAME",
         help="Camera name(s) to capture. Defaults to all cameras.",
     )
